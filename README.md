@@ -1,14 +1,14 @@
 # City of the Dead: Dawn of the Skull
 확장된 자체 프레임워크로 개발한 2D 횡스크롤 액션게임
 
-## Project Overview
+## 프로젝트 개요
 기존 프레임워크에 물리 엔진을 추가하고, 렌더링 엔진을 개선하여 개발한 프로젝트.  
 
 개발 환경: C++, WinAPI, DirectX 9  
 개발 인원: 1인 개발  
 핵심 키워드: FixedUpdate 물리, 모듈형 시스템, 뷰포트 컬링  
 
-## Key Technical Implementation
+## 주요 구현 특징
 1. 누적 시간 기반 멀티 루프(FixedUpdate) 설계  
 * 물리 엔진 안정화: 하드웨어 사양과 관계없이 초당 60회의 고정 주기로 물리 연산을 수행하여 중력, 탄성력 등 물리 시뮬레이션의 수치적 오차 최소화.
 * 멀티 스테이지 업데이트: FixedUpdate(물리/판정), Update(로직/입력), LateUpdate(카메라 보정)로 역할을 분리하여 객체의 생명주기를 안정적으로 관리.
@@ -23,7 +23,7 @@
 
 <img width="270" height="150" alt="Image" src="https://github.com/user-attachments/assets/bd0638ea-0b07-43b9-bf34-7eecc718f156" />
 
-## Troubleshooting
+## 트러블슈팅
 ✅ 카메라 뷰포트 컬링을 통한 프레임 드랍 해결
 * 문제: 스테이지 진입 시 화면 밖의 모든 타일 객체가 렌더링되면서 과도한 오버헤드 유발.
 * 해결: 카메라 좌표 기반 가시 영역 선별 알고리즘을 설계 및 적용하여 런타임 성능 안정화.
@@ -36,6 +36,6 @@
 * 문제: 역코사인(*acos*)을 이용한 각도 산출 시 상/하 대칭 방향을 구분하지 못하는 한계 확인.
 * 해결: 벡터의 x값 방향성을 검사하여 음수인 경우 각도 값을 반전시키는 조건부 보정 로직 적용.
   
-## Repository Structure
+## 레포지토리 구조
 * /Source: 프레임워크 및 게임 로직
 * /Assets: 스프라이트 및 오디오 에셋
